@@ -1,14 +1,17 @@
-from typing import Union
-
 from fastapi import FastAPI, Request
-from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from controller import routers
+from templates import templates
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-templates = Jinja2Templates(directory="templates")
+
+for router in routers:
+    app.include_router(router)
+
+
 
 @app.get("/")
 async def index(request: Request):

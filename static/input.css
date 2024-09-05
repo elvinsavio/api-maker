@@ -4,44 +4,85 @@
 
 
 @layer base {
-    :root {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 72.2% 50.6%;
-        --primary-foreground: 0 85.7% 97.3%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 72.2% 50.6%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
-        --radius: 0.5rem;
-    }
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 72.2% 50.6%;
+    --primary-foreground: 0 85.7% 97.3%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 72.2% 50.6%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+  }
 
-    body {
-        font-family: "Montserrat", sans-serif;
-        font-optical-sizing: auto;
-    }
+  body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+  }
 
-    h1 {
-        @apply text-2xl font-bold
-    }
+  h1 {
+    @apply text-2xl font-bold
+  }
 
-    a {
-        @apply underline hover:text-primary flex items-center gap-1
-    }
+  a {
+    @apply underline hover:text-primary flex items-center gap-1
+  }
+}
+
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #e0cbcb;
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0a0b9;
+  }
+
+  .input-form {  }
+
+  .input-form label {
+    @apply text-muted-foreground 
+  }
+
+  .input-form input {
+    @apply mt-1 block w-full px-3 py-2 border border-muted bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm
+  }
+
+  .input-form textarea {
+    @apply mt-1 block w-full px-3 py-2 border border-muted bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm
+  }
+
+  .button-destructive {
+    @apply bg-destructive text-destructive-foreground px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary
+  }
 }

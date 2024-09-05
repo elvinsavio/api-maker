@@ -15,10 +15,7 @@
   <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-background text-foreground min-h-screen">
-  {% block content %}
-
-  {% endblock %}
+<body class="bg-background text-foreground min-h-screen scrollbar">
+  {% block content %}{% endblock %}
 </body>
-
 </html>
