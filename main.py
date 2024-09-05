@@ -15,4 +15,4 @@ for router in routers:
 
 @app.get("/")
 async def index(request: Request):
-    return templates.TemplateResponse("menu.html", {"request": request})
+    return templates.TemplateResponse("application/menu.html", {"request": request})
