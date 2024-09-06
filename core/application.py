@@ -12,6 +12,8 @@ def create_new_application(name: str, description: str, prefix: str) -> Response
         conn.commit()
         return ("Ok", None)
     except UniqueViolation:
+        conn.rollback() 
         return (None, "Key already exists")
     except Exception as e:
-        return (None, e)
+        conn.rollback() 
+        return (None, str(e))

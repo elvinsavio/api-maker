@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from controller import routers
+import logging
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+logger = logging.getLogger('uvicorn.error')
 
-
+logger.info("Hello")
 for router in routers:
     app.include_router(router)

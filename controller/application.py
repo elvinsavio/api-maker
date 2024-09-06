@@ -1,6 +1,10 @@
-from fastapi import APIRouter, Request, Form
-from templates import templates
+from typing import Optional
+
+from fastapi import APIRouter, Form, Request
+from fastapi.responses import RedirectResponse
+
 import core.application as application_core
+from templates import templates
 
 application_router = APIRouter()
 
@@ -21,7 +25,7 @@ async def new_application_view(request: Request):
 async def create_application(
     request: Request,
     name: str = Form(...),
-    description: str = Form(...),
+    description: Optional[str] = Form(None),
     prefix: str = Form(),
 ):
     (res, err) = application_core.create_new_application(
@@ -32,3 +36,6 @@ async def create_application(
         return templates.TemplateResponse(
             "application/new-application.html", {"request": request, "error": err}
         )
+
+    else:
+        return RedirectResponse(f"applicaiton/{name}")
