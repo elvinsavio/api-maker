@@ -82,6 +82,14 @@
     @apply mt-1 block w-full px-3 py-2 border border-muted bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm
   }
 
+  .input-form span {
+    @apply text-sm text-destructive 
+  }
+
+  .button {
+    @apply bg-transparent border border-border text-foreground px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary
+  }
+
   .button-destructive {
     @apply bg-destructive text-destructive-foreground px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary
   }
